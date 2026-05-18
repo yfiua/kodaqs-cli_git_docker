@@ -9,7 +9,8 @@ The concepts we will be discussing are applicable to other Git hosting services 
 
 ## Adding collaborators to your GitHub repository
 
-Sometimes, it is convenient to have someone whom you can trust to have direct access to your repository, so that they can help with development and management. In this scenario, you can add them as a collaborator.
+In the previous module, we introduced ***forking*** on GitHub, which allows users to create and work on an independent copy of another user's repository under their own accounts. This allows users to contribute to the forked repository with ***pull requests*** (we will come to this later).
+However,it is sometimes convenient to have someone whom you can trust to have direct access to your repository, so that they can help with development and management. In this scenario, you can add them as a collaborator.
 
 To add a user as collaborator to a GitHub repository, go to the main page of the repository and click on the "Settings" tab, then click "Collaborators" under "Access" in the left panel. In the right panel, click the "Add people" button, and then enter or search your collaborator's GitHub account.
 
@@ -91,4 +92,42 @@ without explicitly specifying the remote repository and branch name each time.
 
 ## Integrating contributions
 
+In collaborative Git workflows, developments are usually done on separate branches and later integrated together. Proper integration workflows are essential for maintaining code quality, avoiding conflicts, and preserving a clean project history.
 
+Typical integration scenarios include:
+
+merging a feature branch into main
+updating a feature branch with changes from main
+reviewing contributions through pull requests
+resolving merge conflicts
+choosing between fast-forward merges, merge commits, or rebasing
+
+### Creating a pull request
+
+A pull request (PR) is used to propose changes from one branch into another.
+
+Suppose we have created a branch called `new-branch` from `main` at some commit `C` and made some commits there. At the same time, no change has been made in the `main` branch. Now we want to integrate the new commits `D` and `E` in `new-branch` into `main`.
+
+Assuming both branches are synchronized with the remote repository on GitHub, the situation can be represented as follows:
+
+```
+main            A - B - C
+                        |
+new-branch               - D - E
+```
+
+The diagram shows that `new-branch` has diverged from `main` at commit `C`, and contains two additional commits (`D` and `E`) that are not yet present in main.
+To propose a pull request on GitHub, go to the repository page and click the "Pull Request" tab, and click the "Create pull request".
+
+Next, select the base branch, where changes will be merged (in our case `main`); and the "compare branch" with the new commits (in our case `new-branch`).
+GitHub will automatically show the differences between the branches. Review the changes, check especially
+
+* file diffs
+* added/removed lines
+* commit history
+
+Once everything looks good, click the "Create pull request" button. Now you can add a title and description for the pull request. It is a good practice to provide a clear summary of what was changed and why it was changed. Finally, click the "Create pull request" button to submit the pull request.
+
+Once created, the pull request will appear in the "Pull Request" tab of the repository. Collaborators can review the pull request, leave comments, request changes, and
+approve the pull request.
+After approval, the pull request can be merged into the base branch.
