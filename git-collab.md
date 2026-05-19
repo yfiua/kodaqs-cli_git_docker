@@ -54,7 +54,7 @@ The new branch will be fetched. Using
 git branch
 ```
 
-will show all branches, with the current one highlighted. Next, use
+will show all local branches, with the current one highlighted. Next, use
 
 ```sh
 git switch <branch-name>
@@ -106,14 +106,14 @@ choosing between fast-forward merges, merge commits, or rebasing
 
 A pull request (PR) is used to propose changes from one branch into another.
 
-Suppose we have created a branch called `new-branch` from `main` at some commit `C` and made some commits there. At the same time, no change has been made in the `main` branch. Now we want to integrate the new commits `D` and `E` in `new-branch` into `main`.
+Suppose we have created a branch called `new-branch` from `main` at some commit `C` and made some commits there. At the same time, no change has been made in the `main` branch. Now we want to integrate the new commits `D` and `E` from `new-branch` into `main`.
 
 Assuming both branches are synchronized with the remote repository on GitHub, the situation can be represented as follows:
 
 ```
 main            A - B - C
                         |
-new-branch               - D - E
+new-branch              ^ - D - E
 ```
 
 The diagram shows that `new-branch` has diverged from `main` at commit `C`, and contains two additional commits (`D` and `E`) that are not yet present in main.
@@ -131,3 +131,75 @@ Once everything looks good, click the "Create pull request" button. Now you can 
 Once created, the pull request will appear in the "Pull Request" tab of the repository. Collaborators can review the pull request, leave comments, request changes, and
 approve the pull request.
 After approval, the pull request can be merged into the base branch.
+
+### Integrating diverged branches
+
+In the scenario above, integrating changes from `new-branch` is straight forward, since the two branches have not diverged. In fact, when the pull request is accepted, the two commits `D` and `E` are added in a "fast-forward" manner. In reality, however, things might get more complicated. For example, when `D` and `E` are made in `new-branch`, a collaborator may add another commit `F` in the `main` branch.
+
+```
+main            A - B - C - F
+                        |
+new-branch              ^ - D - E
+```
+
+In this situation, the two branches have ***diverged***, because both branches now contain commits that are absent from the other branch.
+It is important to note that divergence does not necessarily imply conflict branches. For example, commit `F` may modify different files or different parts of the codebase than commits `D` and `E`. In such cases, Git can still integrate the changes automatically. Conflicts arise only when incompatible changes are made to the same portions of the same files.
+
+When the pull request is ***merged***, Git creates a new ***merge commit*** (`M` in the diagram) that combines the histories of both branches:
+
+```
+main            A - B - C - F --- M
+                        |        /
+new-branch              ^ - D - E
+```
+
+### Resolving conflicts
+
+Conflicts occur if incompatible changes are made to the same portions of the same files. In that case, Git cannot automatically determine which version should be kept, and manual conflict resolution becomes necessary.
+
+Using the example scenario above, suppose at commit `C` we have a file `print.py`:
+
+```python
+print('Hello!')
+```
+
+In commit `F` in the `main` branch, the file is changed to
+
+```python
+print('Hello from main!')
+```
+
+In commit `E` in `new-branch`, the file is changed to
+
+```python
+print('Hello from new branch!')
+```
+
+Now, when trying to merge `new-branch` into `main`, Git cannot decide automatically which change should be kept, and we have to manually resolve the conflict. When a pull request from `new-branch` to `main` is created, Git will show that merging is not possible untill the conflict is resolved.
+The conflict can be resolved either with the web editor or locally (see the "View command line instructions" link).
+
+For example, in the web editor, the file `print.py` is displayed with conflict markers that indicate the two versions of the files.
+
+```python
+<<<<<<< new-branch
+print('Hello from new branch!')
+=======
+print('Hello from main!')
+>>>>>>> main
+```
+
+we may decide to combine both changes and modify print.py as follows:
+
+```python
+print('Hello from main and new branch!')
+```
+
+After removing the conflict markers and saving the file, the conflict is considered resolved, and the pull request can be completed successfully.
+
+## References and resources
+
+We have covered the basics of collaborative Git(Hub) usage in this module. There are many more advanced features and best practices that you can learn to make the most out of Git and GitHub, for example branching, merging, rebasing, and pull requests. Here are some resources to help you learn more:
+
+* [An introduction to Git(Hub)](https://github.com/schochastics/git_intro/tree/main) by David Schoch
+* [Happy Git and GitHub for the useR](https://happygitwithr.com/) by Jenny Bryan
+* [GitHub official documentation](https://docs.github.com/en)
