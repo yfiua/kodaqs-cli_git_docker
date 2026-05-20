@@ -175,7 +175,7 @@ print('Hello from new branch!')
 
 We have prepared a sample repository demonstrating diverged branches [here](https://github.com/yfiua/github-diverged-branches). Fork it (including all branches) and play around with it.
 
-Now, when trying to merge `new-branch` into `main`, Git cannot decide automatically which change should be kept, and we have to manually resolve the conflict. When a pull request from `new-branch` to `main` is created, Git will show that merging is not possible untill the conflict is resolved.
+Now, when trying to merge `new-branch` into `main`, Git cannot decide automatically which change should be kept, and we have to manually resolve the conflict. When a pull request from `new-branch` to `main` is created, Git will show that merging is not possible until the conflict is resolved.
 The conflict can be resolved either with the web editor or locally (see the "View command line instructions" link).
 
 For example, in the web editor, the file `print.py` is displayed with conflict markers that indicate the two versions of the files.
@@ -188,7 +188,7 @@ print('Hello from main!')
 >>>>>>> main
 ```
 
-we may decide to combine both changes and modify print.py as follows:
+we may decide to combine both changes and modify `print.py` as follows:
 
 ```python
 print('Hello from main and new branch!')
@@ -198,7 +198,7 @@ After removing the conflict markers and saving the file, the conflict is conside
 
 ## References and resources
 
-We have covered the basics of collaborative Git(Hub) usage in this module. There are many more advanced features and best practices that you can learn, for example rebasing pull requests. Here are some resources to help you learn more:
+We have covered the basics of collaborative Git(Hub) usage in this module. There are many more advanced features and best practices that you can learn, for example merging vs rebasing pull requests, and squash pull requests. Here are some resources to help you learn more:
 
 * [Collaborative coding with GitHub and RStudio](https://github.com/lmu-osc/Collaborative-RStudio-GitHub) by Anna Krystalli from RSE-Sheffield
 * [Collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/) by GitHub Docs
