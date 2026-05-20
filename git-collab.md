@@ -96,11 +96,9 @@ In collaborative Git workflows, developments are usually done on separate branch
 
 Typical integration scenarios include:
 
-merging a feature branch into main
-updating a feature branch with changes from main
-reviewing contributions through pull requests
-resolving merge conflicts
-choosing between fast-forward merges, merge commits, or rebasing
+* merging a feature branch into main
+* reviewing contributions through pull requests
+* resolving merge conflicts
 
 ### Creating a pull request
 
@@ -175,6 +173,8 @@ In commit `E` in `new-branch`, the file is changed to
 print('Hello from new branch!')
 ```
 
+We have prepared a sample repository demonstrating diverged branches [here](https://github.com/yfiua/github-diverged-branches). Fork it (including all branches) and play around with it.
+
 Now, when trying to merge `new-branch` into `main`, Git cannot decide automatically which change should be kept, and we have to manually resolve the conflict. When a pull request from `new-branch` to `main` is created, Git will show that merging is not possible untill the conflict is resolved.
 The conflict can be resolved either with the web editor or locally (see the "View command line instructions" link).
 
@@ -198,8 +198,7 @@ After removing the conflict markers and saving the file, the conflict is conside
 
 ## References and resources
 
-We have covered the basics of collaborative Git(Hub) usage in this module. There are many more advanced features and best practices that you can learn to make the most out of Git and GitHub, for example branching, merging, rebasing, and pull requests. Here are some resources to help you learn more:
+We have covered the basics of collaborative Git(Hub) usage in this module. There are many more advanced features and best practices that you can learn, for example rebasing pull requests. Here are some resources to help you learn more:
 
-* [An introduction to Git(Hub)](https://github.com/schochastics/git_intro/tree/main) by David Schoch
-* [Happy Git and GitHub for the useR](https://happygitwithr.com/) by Jenny Bryan
-* [GitHub official documentation](https://docs.github.com/en)
+* [Collaborative coding with GitHub and RStudio](https://github.com/lmu-osc/Collaborative-RStudio-GitHub) by Anna Krystalli from RSE-Sheffield
+* [Collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/) by GitHub Docs
