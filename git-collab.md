@@ -80,7 +80,7 @@ Now, you can work on the new branch and commit your changes locally using `git c
 git push -u origin <branch-name>
 ```
 
-Now you and collaborators can check that the new branch is pushed to GitHub. At the same time, Git remembers that the local branch `<branch-name>' corresponds to the remote branch `<branch-name>` on GitHub, such that subsequent synchronization commands can be simplified to what we have learned in the last module
+Now you and collaborators can check that the new branch is pushed to GitHub. At the same time, Git remembers that the local branch `<branch-name>` corresponds to the remote branch `<branch-name>` on GitHub, such that subsequent synchronization commands can be simplified to what we have learned in the last module
 
 ```sh
 git push
