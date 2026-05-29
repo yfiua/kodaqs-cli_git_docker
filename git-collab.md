@@ -38,11 +38,9 @@ The current branch is switched to the newly created one in the web interface. Yo
 
 ### Working with branches locally
 
-To work with the newly created branch on your machine,...
+To work with the newly created branch on your machine, first make sure your current branch is clean: This means there is no uncommited change in the current branch.
 
-It is a good practice to start clean: This means there is no uncommited changes in the current branch.
-
-First, fetch all up-to-date branches using
+Then, fetch all up-to-date branches using
 
 ```sh
 git fetch

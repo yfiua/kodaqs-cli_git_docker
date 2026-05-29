@@ -9,6 +9,7 @@ This is not according to the course structure but only lists what is in this rep
 
 - [CLI](cli.md)
 - [Git](git.md)
+- [Using Git(Hub) collaboratively](git-collab.md)
 - [Literate programming I: Quarto](quarto.md)
 - [Computational environment](compenv.md)
 - [Computational Environment II: Time-Stamped Repositories and Virtual Environment](p3m.md)
