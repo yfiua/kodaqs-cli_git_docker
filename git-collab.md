@@ -4,12 +4,12 @@
 
 As a distributed version control system, Git allows multiple people to work on the same project at the same time.
 
-In this module, we illustrate multiple ways Git(Hub) can be used collaboratively.
+In this learning unit, we illustrate multiple ways Git(Hub) can be used collaboratively.
 The concepts we will be discussing are applicable to other Git hosting services such as GitLab and Codeberg as well.
 
 ## Adding collaborators to your GitHub repository
 
-In the previous module, we introduced ***forking*** on GitHub, which allows users to create and work on an independent copy of another user's repository under their own accounts. This allows users to contribute to the forked repository with ***pull requests*** (we will come to this later).
+In the previous learning unit, we introduced ***forking*** on GitHub, which allows users to create and work on an independent copy of another user's repository under their own accounts. This allows users to contribute to the forked repository with ***pull requests*** (we will come to this later).
 However,it is sometimes convenient to have someone whom you can trust to have direct access to your repository, so that they can help with development and management. In this scenario, you can add them as a collaborator.
 
 To add a user as collaborator to a GitHub repository, go to the main page of the repository and click on the "Settings" tab, then click "Collaborators" under "Access" in the left panel. In the right panel, click the "Add people" button, and then enter or search your collaborator's GitHub account.
@@ -80,7 +80,7 @@ Now, you can work on the new branch and commit your changes locally using `git c
 git push -u origin <branch-name>
 ```
 
-Now you and collaborators can check that the new branch is pushed to GitHub. At the same time, Git remembers that the local branch `<branch-name>` corresponds to the remote branch `<branch-name>` on GitHub, such that subsequent synchronization commands can be simplified to what we have learned in the last module
+Now you and collaborators can check that the new branch is pushed to GitHub. At the same time, Git remembers that the local branch `<branch-name>` corresponds to the remote branch `<branch-name>` on GitHub, such that subsequent synchronization commands can be simplified to what we have learned in the last learning unit:
 
 ```sh
 git push
@@ -196,7 +196,7 @@ After removing the conflict markers and saving the file, the conflict is conside
 
 ## References and resources
 
-We have covered the basics of collaborative Git(Hub) usage in this module. There are many more advanced features and best practices that you can learn, for example merging vs rebasing pull requests, and squash pull requests. Here are some resources to help you learn more:
+We have covered the basics of collaborative Git(Hub) usage in this learning unit. There are many more advanced features and best practices that you can learn, for example merging vs rebasing pull requests, and squash pull requests. Here are some resources to help you learn more:
 
 * [Collaborative coding with GitHub and RStudio](https://github.com/lmu-osc/Collaborative-RStudio-GitHub) by Anna Krystalli from RSE-Sheffield
 * [Collaborating with pull requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/) by GitHub Docs
