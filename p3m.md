@@ -23,7 +23,7 @@ In this unit, we will discussed time-stamped repositories and virtual environmen
 
 ## Configuration files
 
-Automatic recreation of a computation environment is facilitated by [configuration files](https://mybinder.readthedocs.io/en/latest/using/config_files.html).
+Automatic recreation of a computation environment is facilitated by [configuration files](https://repo2docker.readthedocs.io/en/latest/configuration/).
 
 The simplest way to create a configuration file is to list out all packages in a computational environment.
 
